@@ -7,7 +7,7 @@ class Coffee:
         self.description = description
         self.rating = rating
 
-coffee = [
+coffees = [
     Coffee('Peppermint Mocha', 'Starbucks', 'A chocolate-y treat seasonally made with peppermint.', 2),
     Coffee('Black Cat Classic Espresso', 'Cometeer Coffee', 'With notes of dark chocolate, raw sugar, and marshmallow.', 4),
     Coffee('The Daily', 'Cometeer Coffee', 'With notes of chocolate, caramel, and molasses.', 5),
@@ -21,4 +21,4 @@ def about(request):
     return render(request, 'about.html')
 
 def coffee_index(request):
-    return render(request, 'coffee/index.html', {'coffee': coffee})
+    return render(request, 'coffee/index.html', {'coffees': coffees})

@@ -22,8 +22,8 @@ html {
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
     min-height: 100vh;
-    --nav-bg: rgba(104, 197, 248, 0.7);
-    --nav-bg-ff: rgba(104, 197, 248, 0.9);
+    --nav-bg: rgb(98, 78, 66);
+    --nav-bg-ff: rgb(98, 78, 66);
     --borders: rgba(46, 24, 10) solid 2px;
     --text-color: rgb(17, 20, 17);
     --link-hover-color: rgb(255, 214, 189);
