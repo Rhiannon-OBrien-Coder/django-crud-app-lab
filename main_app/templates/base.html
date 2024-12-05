@@ -5,8 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        rel="shortcut icon"
+        type="image/png"
+        href="{% static 'images/splash.svg' %}"
+    />
+    <title>Coffee Collector</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <title>Coffee Logger</title>
     {% block head %} 
     {% endblock %}
   </head>
@@ -14,14 +19,15 @@
     <header>
       <div class="header-logo-container">
         <a href="/">
-          <img src="" alt="Logo" />
+            <img src="{% static 'images/header-logo.svg' %}" alt="Logo" />
         </a>
       </div>
       <nav>
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/coffee">Coffee</a></li>
-        </ul>
+          <li><a href="{% url 'coffee-index' %}">All Coffees</a></li>
+          <li><a href="{% url 'coffee-create' %}">Add a Coffee</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+        </ul>        
       </nav>
     </header>
     <main>

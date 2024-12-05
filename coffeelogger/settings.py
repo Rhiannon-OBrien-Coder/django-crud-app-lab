@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a3tav6q1yqk4b5wz1(rwtvzam&ih9^1hb99^0o6=@uoozt)_qr'
+SECRET_KEY = 'django-insecure-m@lxmuex=qmuw7w#@2y!l39dr+==^!qhpn2#)e1ki6+x^dl7ne'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'coffeelogger.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'coffeelogger',
     }
 }
 

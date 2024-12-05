@@ -1,18 +1,6 @@
 from django.shortcuts import render
-
-class Coffee:
-    def __init__(self, name, brand, description, rating):
-        self.name = name
-        self.brand = brand
-        self.description = description
-        self.rating = rating
-
-coffees = [
-    Coffee('Peppermint Mocha', 'Starbucks', 'A chocolate-y treat seasonally made with peppermint.', 2),
-    Coffee('Black Cat Classic Espresso', 'Cometeer Coffee', 'With notes of dark chocolate, raw sugar, and marshmallow.', 4),
-    Coffee('The Daily', 'Cometeer Coffee', 'With notes of chocolate, caramel, and molasses.', 5),
-    Coffee('Mocha Java', 'Cometeer Coffee', 'With notes of dark chocolate, almond, and berry.', 3)
-]
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Coffee
 
 def home(request):
     return render(request, 'home.html')
@@ -21,4 +9,22 @@ def about(request):
     return render(request, 'about.html')
 
 def coffee_index(request):
-    return render(request, 'coffee/index.html', {'coffees': coffees})
+    coffees = Coffee.objects.all()
+    return render(request, 'coffees/index.html', {'coffees': coffees})
+
+def coffee_detail(request, cat_id):
+    coffee = Coffee.objects.get(id=cat_id)
+    return render(request, 'coffees/detail.html', {'coffee': coffee})
+
+class CoffeeCreate(CreateView):
+    model = Coffee
+    fields = ['name', 'brand', 'description', 'rating']
+    success_url = '/coffees/'
+
+class CoffeeUpdate(UpdateView):
+    model = Coffee
+    fields = ['brand', 'description', 'rating']
+
+class CoffeeDelete(DeleteView):
+    model = Coffee
+    success_url = '/coffees/'

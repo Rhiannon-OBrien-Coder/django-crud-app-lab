@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/coffees/coffee-index.css' %}"/>
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>coffee List</h1>
+  <img src="{% static 'images/cool-coffee.svg' %}" alt="A cool coffee" />
+  <img src="{% static 'images/happy-coffee.svg' %}" alt="A happy coffee" />
+  <img src="{% static 'images/teacup-coffee.svg' %}" alt="A coffee in a teacup" />
+  <img src="{% static 'images/coffee-in-box.svg' %}" alt="A coffee in a box" />
+</section>
+
+<section class="card-container">
+  {% for coffee in coffees %}
+    <div class="card">
+      <a href="{% url 'coffee-detail' coffee.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img
+              src="{% static 'images/sk8r-boi-coffee.svg' %}"
+              alt="A skater boy coffee"
+            />
+          </div>
+          <h2>{{ coffee.name }}</h2>
+          <h1>{{ coffee.brand }}</h1>
+          <p>{{ coffee.description }}</p>
+          <p>{{ coffee.rating }}</p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
